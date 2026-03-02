@@ -1,0 +1,68 @@
+{
+  "common": {
+    "search": "Search",
+    "donate": "Donate",
+    "loading": "Loading..."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "watchlist": "Watchlist",
+    "apiDocs": "API Docs"
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signingIn": "Signing In",
+    "signUp": "Sign Up",
+    "signingUp": "Signing Up",
+    "signOut": "Sign Out",
+    "logout": "Logout",
+    "createAccount": "Create an account",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "welcomeSignUp": "Sign Up & Personalize",
+    "fullName": "Full Name",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "validEmail": "Please enter a valid email address",
+    "fullNameRequired": "Full name is required",
+    "enterPassword": "Enter your password",
+    "enterFullName": "Enter full name",
+    "signInFailed": "Sign in failed",
+    "signUpFailed": "Sign up failed",
+    "invalidCredentials": "Invalid email or password."
+  },
+  "footer": {
+    "tagline": "OpenStock is an open-source alternative to expensive market platforms. Track real-time prices, set personalized alerts, and explore detailed company insights — built openly, for everyone, forever free.",
+    "learnMission": "Learn about our mission",
+    "resources": "Resources",
+    "apiDocumentation": "API Documentation",
+    "helpCenter": "Help Center",
+    "termsOfService": "Terms of Service",
+    "copyright": "© {year} Open Dev Society. All rights reserved."
+  },
+  "home": {
+    "marketOverview": "Market Overview",
+    "stockHeatmap": "Stock Heatmap",
+    "upvotePeerlist": "Upvote us on Peerlist 🚀"
+  },
+  "watchlist": {
+    "title": "Watchlist",
+    "subtitle": "Track your favorite stocks and manage alerts.",
+    "addStock": "Add Stock",
+    "company": "Company",
+    "symbol": "Symbol",
+    "price": "Price",
+    "change": "Change",
+    "marketCap": "Market Cap",
+    "peRatio": "P/E Ratio",
+    "alert": "Alert",
+    "action": "Action"
+  },
+  "metadata": {
+    "title": "OpenStock",
+    "description": "OpenStock is an open-source alternative to expensive market platforms. Track real-time prices, set personalized alerts, and explore detailed company insights — built openly, for everyone, forever free."
+  }
+}

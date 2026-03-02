@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import { auth } from "@/lib/better-auth/auth";
 import { headers } from "next/headers";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 import Footer from "@/components/Footer";
 import DonatePopup from "@/components/DonatePopup";
 import SirayBanner from "@/components/SirayBanner";

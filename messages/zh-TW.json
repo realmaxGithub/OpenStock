@@ -1,0 +1,68 @@
+{
+  "common": {
+    "search": "搜尋",
+    "donate": "捐贈",
+    "loading": "載入中..."
+  },
+  "nav": {
+    "dashboard": "儀表板",
+    "watchlist": "觀察清單",
+    "apiDocs": "API 文件"
+  },
+  "auth": {
+    "welcomeBack": "歡迎回來",
+    "email": "電子郵件",
+    "password": "密碼",
+    "signIn": "登入",
+    "signingIn": "登入中",
+    "signUp": "註冊",
+    "signingUp": "註冊中",
+    "signOut": "登出",
+    "logout": "登出",
+    "createAccount": "建立帳戶",
+    "alreadyHaveAccount": "已有帳戶？",
+    "dontHaveAccount": "還沒有帳戶？",
+    "welcomeSignUp": "註冊並個人化",
+    "fullName": "姓名",
+    "emailRequired": "請輸入電子郵件",
+    "passwordRequired": "請輸入密碼",
+    "validEmail": "請輸入有效的電子郵件地址",
+    "fullNameRequired": "請輸入姓名",
+    "enterPassword": "請輸入密碼",
+    "enterFullName": "請輸入姓名",
+    "signInFailed": "登入失敗",
+    "signUpFailed": "註冊失敗",
+    "invalidCredentials": "電子郵件或密碼錯誤。"
+  },
+  "footer": {
+    "tagline": "OpenStock 是昂貴市場平台的開源替代方案。即時報價、個人化提醒與公司洞察 — 為所有人開放、永久免費。",
+    "learnMission": "了解我們的使命",
+    "resources": "資源",
+    "apiDocumentation": "API 文件",
+    "helpCenter": "說明中心",
+    "termsOfService": "服務條款",
+    "copyright": "© {year} Open Dev Society. 保留所有權利。"
+  },
+  "home": {
+    "marketOverview": "市場總覽",
+    "stockHeatmap": "股票熱力圖",
+    "upvotePeerlist": "在 Peerlist 為我們投票 🚀"
+  },
+  "watchlist": {
+    "title": "觀察清單",
+    "subtitle": "追蹤您喜愛的股票並管理提醒。",
+    "addStock": "新增股票",
+    "company": "公司",
+    "symbol": "代號",
+    "price": "價格",
+    "change": "漲跌",
+    "marketCap": "市值",
+    "peRatio": "本益比",
+    "alert": "提醒",
+    "action": "操作"
+  },
+  "metadata": {
+    "title": "OpenStock",
+    "description": "OpenStock 是昂貴市場平台的開源替代方案。即時報價、個人化提醒與公司洞察 — 為所有人開放、永久免費。"
+  }
+}

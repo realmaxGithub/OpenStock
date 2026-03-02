@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { ArrowUp, ArrowDown, Bell } from "lucide-react";
 import CreateAlertModal from "./CreateAlertModal";
 import WatchlistButton from "@/components/WatchlistButton";
@@ -16,6 +17,7 @@ interface WatchlistTableProps {
 }
 
 export default function WatchlistTable({ data, userId, onRefresh }: WatchlistTableProps) {
+    const t = useTranslations('watchlist');
     const [stocks, setStocks] = useState(data);
 
     useEffect(() => {
@@ -75,12 +77,12 @@ export default function WatchlistTable({ data, userId, onRefresh }: WatchlistTab
             <table className="w-full text-left text-sm border-collapse">
                 <thead className="bg-white/5 text-gray-400 font-medium border-b border-white/10">
                     <tr>
-                        <th className="px-6 py-4 font-semibold tracking-wide">Company</th>
-                        <th className="px-6 py-4 font-semibold tracking-wide">Symbol</th>
-                        <th className="px-6 py-4 font-semibold tracking-wide">Price</th>
-                        <th className="px-6 py-4 font-semibold tracking-wide">Change</th>
-                        <th className="px-6 py-4 font-semibold tracking-wide">Market Cap</th>
-                        <th className="px-6 py-4 text-right font-semibold tracking-wide">Actions</th>
+                        <th className="px-6 py-4 font-semibold tracking-wide">{t('company')}</th>
+                        <th className="px-6 py-4 font-semibold tracking-wide">{t('symbol')}</th>
+                        <th className="px-6 py-4 font-semibold tracking-wide">{t('price')}</th>
+                        <th className="px-6 py-4 font-semibold tracking-wide">{t('change')}</th>
+                        <th className="px-6 py-4 font-semibold tracking-wide">{t('marketCap')}</th>
+                        <th className="px-6 py-4 text-right font-semibold tracking-wide">{t('action')}</th>
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-white/10">

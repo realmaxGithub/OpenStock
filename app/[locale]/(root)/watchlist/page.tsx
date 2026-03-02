@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import { auth } from '@/lib/better-auth/auth';
 import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { redirect } from '@/i18n/routing';
+import { getTranslations } from 'next-intl/server';
 import { getUserWatchlist } from '@/lib/actions/watchlist.actions';
 import { getUserAlerts } from '@/lib/actions/alert.actions';
 import { getNews } from '@/lib/actions/finnhub.actions';
@@ -12,6 +13,7 @@ import SearchCommand from '@/components/SearchCommand';
 import { Loader2 } from 'lucide-react';
 
 export default async function WatchlistPage() {
+    const t = await getTranslations('watchlist');
     const session = await auth.api.getSession({
         headers: await headers()
     });
@@ -40,12 +42,12 @@ export default async function WatchlistPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
                 <div>
                     <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-                        Watchlist
+                        {t('title')}
                     </h1>
-                    <p className="text-gray-500 mt-1">Track your favorite stocks and manage alerts.</p>
+                    <p className="text-gray-500 mt-1">{t('subtitle')}</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <SearchCommand renderAs="button" label="Add Stock" initialStocks={[]} />
+                    <SearchCommand renderAs="button" label={t('addStock')} initialStocks={[]} />
                 </div>
             </div>
 

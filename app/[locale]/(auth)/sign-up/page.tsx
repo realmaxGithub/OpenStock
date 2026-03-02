@@ -8,13 +8,15 @@ import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from "
 import { CountrySelectField } from "@/components/forms/CountrySelectField";
 import FooterLink from "@/components/forms/FooterLink";
 import { signUpWithEmail } from "@/lib/actions/auth.actions";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
+import { useTranslations } from 'next-intl';
 import { toast } from "sonner";
 import OpenDevSocietyBranding from "@/components/OpenDevSocietyBranding";
 import React from "react";
 
 const SignUp = () => {
-    const router = useRouter()
+    const router = useRouter();
+    const t = useTranslations('auth');
     const {
         register,
         handleSubmit,
@@ -40,54 +42,54 @@ const SignUp = () => {
                 router.push('/');
                 return;
             }
-            toast.error('Sign up failed', {
-                description: result.error ?? 'We could not create your account.',
+            toast.error(t('signUpFailed'), {
+                description: result.error ?? t('signUpFailed'),
             });
         } catch (e) {
             console.error(e);
-            toast.error('Sign up failed', {
-                description: e instanceof Error ? e.message : 'Failed to create an account.'
-            })
+            toast.error(t('signUpFailed'), {
+                description: e instanceof Error ? e.message : t('signUpFailed'),
+            });
         }
     }
 
     return (
         <>
-            <h1 className="form-title">Sign Up & Personalize</h1>
+            <h1 className="form-title">{t('welcomeSignUp')}</h1>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <InputField
                     name="fullName"
-                    label="Full Name"
-                    placeholder="Enter full name"
+                    label={t('fullName')}
+                    placeholder={t('enterFullName')}
                     register={register}
                     error={errors.fullName}
-                    validation={{ required: 'Full name is required', minLength: 2 }}
+                    validation={{ required: t('fullNameRequired'), minLength: 2 }}
                 />
 
                 <InputField
                     name="email"
-                    label="Email"
+                    label={t('email')}
                     placeholder="opendevsociety@cc.cc"
                     register={register}
                     error={errors.email}
                     validation={{
-                        required: 'Email is required',
+                        required: t('emailRequired'),
                         pattern: {
                             value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/,
-                            message: 'Please enter a valid email address'
+                            message: t('validEmail')
                         }
                     }}
                 />
 
                 <InputField
                     name="password"
-                    label="Password"
-                    placeholder="Enter a strong password"
+                    label={t('password')}
+                    placeholder={t('enterPassword')}
                     type="password"
                     register={register}
                     error={errors.password}
-                    validation={{ required: 'Password is required', minLength: 8 }}
+                    validation={{ required: t('passwordRequired'), minLength: 8 }}
                 />
 
                 <CountrySelectField
@@ -129,10 +131,10 @@ const SignUp = () => {
                 />
 
                 <Button type="submit" disabled={isSubmitting} className="yellow-btn w-full mt-5">
-                    {isSubmitting ? 'Creating Account' : 'Start Your Investing Journey'}
+                    {isSubmitting ? t('signingUp') : t('signUp')}
                 </Button>
 
-                <FooterLink text="Already have an account?" linkText="Sign in" href="/sign-in" />
+                <FooterLink text={t('alreadyHaveAccount')} linkText={t('signIn')} href="/sign-in" />
 
                 <OpenDevSocietyBranding outerClassName="mt-10 flex justify-center" />
                 <div className="mt-5 flex justify-center">

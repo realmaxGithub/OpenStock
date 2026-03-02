@@ -1,15 +1,14 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import React from "react";
 import Image from "next/image";
-import {headers} from "next/headers";
-import {redirect} from "next/navigation";
-import {auth} from "@/lib/better-auth/auth";
+import { headers } from "next/headers";
+import { redirect } from "@/i18n/routing";
+import { auth } from "@/lib/better-auth/auth";
 
-const Layout = async ({ children }: { children : React.ReactNode }) => {
+const Layout = async ({ children }: { children: React.ReactNode }) => {
+    const session = await auth.api.getSession({ headers: await headers() });
 
-    const session = await auth.api.getSession({headers: await headers()});
-
-    if (session?.user) redirect('/')
+    if (session?.user) redirect('/');
     return (
         <main className="auth-layout">
             <section className="auth-left-section scrollbar-hide-default">

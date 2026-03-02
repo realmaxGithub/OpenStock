@@ -1,8 +1,9 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import NavItems from "@/components/NavItems";
 import UserDropdown from "@/components/UserDropdown";
-import {searchStocks} from "@/lib/actions/finnhub.actions";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { searchStocks } from "@/lib/actions/finnhub.actions";
 
 const Header = async ({ user }: { user: User }) => {
     const initialStocks = await searchStocks();
@@ -19,10 +20,13 @@ const Header = async ({ user }: { user: User }) => {
                     />
                 </Link>
                 <nav className="hidden sm:block">
-                    <NavItems initialStocks={initialStocks}/>
+                    <NavItems initialStocks={initialStocks} />
                 </nav>
 
-                <UserDropdown user={user} initialStocks={initialStocks} />
+                <div className="flex items-center gap-2">
+                    <LocaleSwitcher />
+                    <UserDropdown user={user} initialStocks={initialStocks} />
+                </div>
             </div>
         </header>
     )

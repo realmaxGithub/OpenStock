@@ -1,10 +1,9 @@
-'use client'
+'use client';
 
-
-import React, { createContext, useContext } from 'react'
-import {NAV_ITEMS} from "@/lib/constants";
-import Link from "next/link";
-import {usePathname} from "next/navigation";
+import React, { createContext, useContext } from 'react';
+import { useTranslations } from 'next-intl';
+import { NAV_ITEMS } from '@/lib/constants';
+import { Link, usePathname } from '@/i18n/routing';
 import SearchCommand from "@/components/SearchCommand";
 import { Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -18,14 +17,21 @@ const DonatePopupContext = createContext<{
 
 export const useDonatePopup = () => useContext(DonatePopupContext);
 
-const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]}) => {
-    const pathname = usePathname()
+const navKeyMap: Record<string, string> = {
+  'Dashboard': 'nav.dashboard',
+  'Search': 'common.search',
+  'Watchlist': 'nav.watchlist',
+  'API Docs': 'nav.apiDocs',
+};
+
+const NavItems = ({ initialStocks }: { initialStocks: StockWithWatchlistStatus[] }) => {
+    const pathname = usePathname();
+    const t = useTranslations();
 
     const isActive = (path: string) => {
-        if (path ==='/') return pathname === '/'
-
-        return  pathname.startsWith(path);
-    }
+        if (path === '/') return pathname === '/';
+        return pathname.startsWith(path);
+    };
 
     const openDonatePopup = () => {
         // Trigger the popup by dispatching a custom event
@@ -35,21 +41,25 @@ const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]})
     return (
         <DonatePopupContext.Provider value={{ openDonatePopup }}>
             <ul className="flex flex-col sm:flex-row p-2 gap-3 sm:gap-10 font-medium">
-            {NAV_ITEMS.map(({href, label}) => {
-                if (href === '/search') return (
-                    <li key="search-trigger">
-                        <SearchCommand
-                            renderAs="text"
-                            label="Search"
-                            initialStocks={initialStocks}
-                        />
+            {NAV_ITEMS.map(({ href, label }) => {
+                if (href === '/search')
+                    return (
+                        <li key="search-trigger">
+                            <SearchCommand
+                                renderAs="text"
+                                label={t('common.search')}
+                                initialStocks={initialStocks}
+                            />
+                        </li>
+                    );
+                const labelKey = navKeyMap[label];
+                return (
+                    <li key={href}>
+                        <Link href={href} className={`hover:text-teal-500 transition-colors ${isActive(href) ? 'text-gray-100' : ''}`}>
+                            {labelKey ? t(labelKey) : label}
+                        </Link>
                     </li>
-                )
-                return <li key={href}>
-                    <Link href={href} className={`hover:text-teal-500 transition-colors ${isActive(href) ? 'text-gray-100' : ''}`}>
-                        {label}
-                    </Link>
-                </li>
+                );
             })}
             <li key="donate">
                 <Button
@@ -58,7 +68,7 @@ const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]})
                     size="sm"
                 >
                     <Heart className="h-4 w-4 fill-current" />
-                    Donate
+                    {t('common.donate')}
                 </Button>
             </li>
         </ul>
